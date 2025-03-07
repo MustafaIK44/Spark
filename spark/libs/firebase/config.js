@@ -1,5 +1,7 @@
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+import { getFirestore } from "firebase/firestore";
+
+
 const firebaseConfig = {
   apiKey: "AIzaSyCz7psZeWnTvuNHwBppwB4AIz9-5jMgXwE",
   authDomain: "spark-be1a0.firebaseapp.com",
@@ -10,4 +12,5 @@ const firebaseConfig = {
   measurementId: "G-G2HSKCG6EW"
 };
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+const db = getFirestore(app);
+export { app, db };
