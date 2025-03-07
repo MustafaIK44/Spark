@@ -1,10 +1,13 @@
+import React from "react";
 import './App.css';
+import Header from "./components/Header.jsx";
+import SearchBar from "./components/SearchBar.jsx";
 
 function App() {
-  
   return (
     <div>
-        Welcome to Spark
+        <Header />
+        <SearchBar />
     </div>
   );
 }
