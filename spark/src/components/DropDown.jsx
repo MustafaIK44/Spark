@@ -5,7 +5,7 @@
 export default function DropDown() {
     return (
         <div className="dropdown">
-            <label tabIndex="0" className="btn m-1"> Zip Codes </label>
+            <label tabIndex="0" className="btn m-1 p-1"> Zip Codes </label>
             <ul tabIndex="0" className="dropdown-content z-[1] menu p-2 shadow-lg bg-base-100 rounded-box w-80">
                 <li><a>20151</a></li>
                 <li><a>20153</a></li>
