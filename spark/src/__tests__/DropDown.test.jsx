@@ -19,14 +19,14 @@ describe("DropDown Component", () => {
     });
   });
 
-  test("displays 'No options available' when choices is empty", () => {
-    render(<DropDown choices={[]} />);
-    expect(screen.getByText("No options available")).toBeInTheDocument();
+  test("displays 'No options available' when choices is null", () => {
+    render(<DropDown choices={null} />);
+    expect(screen.getByText("No options available at the moment. Please try again later.")).toBeInTheDocument();
   });
 
-  test("handles null choices gracefully", () => {
-    render(<DropDown choices={null} />);
-    expect(screen.getByText("No options available")).toBeInTheDocument();
+  test("displays 'No options available' when choices is empty", () => {
+    render(<DropDown choices={[]} />);
+    expect(screen.getByText("No options available at the moment. Please try again later.")).toBeInTheDocument();
   });
 
 });
