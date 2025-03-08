@@ -20,7 +20,7 @@ function DropDownChoices ({ choices }) {
  * Originally generated with AI using the prompt: "How can I create a dropdown menu using DaisyUI?".
  * Has been modified heavily to use a helper function (DropDownChoices) and to account for scalability and maintainability.
  * 
- * @return a drop down menu
+ * @return a drop down menu if there are choices passed into the function, a "No options available" tab if not
  */
 export default function DropDown({ choices }) {
     if (!choices || choices.length === 0) {
