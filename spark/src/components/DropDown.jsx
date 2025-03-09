@@ -22,11 +22,11 @@ function DropDownChoices ({ choices }) {
  * 
  * @return a drop down menu if there are choices passed into the function, a "No options available" tab if not
  */
-export default function DropDown({ choices }) {
+export default function DropDown({choices, text = "Select an Option" }) {
     if (!choices || choices.length === 0) {
         return (
             <div className="dropdown">
-                <label tabIndex="0" className="btn m-1">Zip Codes</label>
+                <label tabIndex="0" className="btn m-1">{text}</label>
                 <ul tabIndex="0" className="dropdown-content z-[1] menu p-2 shadow-lg bg-base-100 rounded-box w-80">
                     <li>No options available at the moment. Please try again later.</li>
                 </ul>
@@ -36,7 +36,7 @@ export default function DropDown({ choices }) {
 
     return (
         <div className="dropdown">
-            <label tabIndex="0" className="btn m-1">Zip Codes</label>
+            <label tabIndex="0" className="btn m-1">{text}</label>
             <ul tabIndex="0" className="dropdown-content z-[1] menu p-2 shadow-lg bg-base-100 rounded-box w-80">
                 <DropDownChoices choices={ choices } />
             </ul>
