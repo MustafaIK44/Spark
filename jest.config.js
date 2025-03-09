@@ -1,23 +1,26 @@
 module.exports = {
-  testEnvironment: 'jsdom',
-  setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
-  transform: {
-    '^.+\\.(js|jsx|ts|tsx)$': 'babel-jest'
-  },
-  moduleNameMapper: {
-    '^@/components/(.*)$': '<rootDir>/src/components/$1',
-    '^@/pages/(.*)$': '<rootDir>/src/pages/$1',
-    '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
-  },
-  testPathIgnorePatterns: ['<rootDir>/.next/', '<rootDir>/node_modules/'],
-  transformIgnorePatterns: [
-    '/node_modules/',
-    '^.+\\.module\\.(css|sass|scss)$',
+  // Automatically clear mock calls and instances between every test
+  clearMocks: true,
+
+  // The directory where Jest should output its coverage files
+  coverageDirectory: "coverage",
+
+  // A list of paths to directories that Jest should use to search for files in
+  roots: [
+    "<rootDir>/src"
   ],
-  collectCoverageFrom: [
-    'src/**/*.{js,jsx,ts,tsx}',
-    '!src/**/*.d.ts',
-    '!src/**/*.stories.{js,jsx,ts,tsx}',
-    '!**/node_modules/**',
+
+  // The test environment that will be used for testing
+  testEnvironment: "node",
+
+  // The glob patterns Jest uses to detect test files
+  testMatch: [
+    "**/__tests__/**/*.js?(x)",
+    "**/?(*.)+(spec|test).js?(x)"
   ],
+
+  // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
+  testPathIgnorePatterns: [
+    "/node_modules/"
+  ]
 }; 
