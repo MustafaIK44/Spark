@@ -38,7 +38,7 @@ export default function DropDown({ choices }) {
         <div className="dropdown">
             <label tabIndex="0" className="btn m-1">Zip Codes</label>
             <ul tabIndex="0" className="dropdown-content z-[1] menu p-2 shadow-lg bg-base-100 rounded-box w-80">
-                <ZipCodeItems zipCodes={zipCodes} />
+                <DropDownChoices choices={ choices } />
             </ul>
         </div>
     );
