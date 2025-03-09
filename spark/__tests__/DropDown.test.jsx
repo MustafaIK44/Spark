@@ -1,7 +1,7 @@
+import '@testing-library/jest-dom';
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import DropDown from "../components/DropDown";
-import "@testing-library/jest-dom/extend-expect";
+import DropDown from "../src/components/DropDown.jsx";
 
 describe("DropDown Component", () => {
   

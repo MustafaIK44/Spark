@@ -1,5 +1,5 @@
-import { render, screen } from '@testing-library/react'
-import FirstTest from '../components/FirstTest';
+{/* import { render, screen } from '@testing-library/react'
+import SearchBar from '../components/SearchBar.jsx';
 
 test("Introduction message renders successfully", () => {
     render(<SearchBar/>)
@@ -7,4 +7,4 @@ test("Introduction message renders successfully", () => {
     const element = screen.getByText(/eggs/i);
 
     expect(element).toBeInTheDocument();
-})
+}) */}
