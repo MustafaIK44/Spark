@@ -8,7 +8,7 @@
  */
 function AvailableItems({listID, list}) {
     return (
-        <datalist id={listID}>
+        <datalist role="listbox" id={listID}>
             {list.map(
                 (item, index) => (<option value={item} key={index}> </option>))
             }
