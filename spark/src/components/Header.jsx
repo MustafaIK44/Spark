@@ -1,3 +1,7 @@
+/**
+ * Render the header for the website with a welcome message.
+ * @returns the header
+ */
 export default function Header() {
     return (
         <div> 
