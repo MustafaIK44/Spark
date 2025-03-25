@@ -1,6 +1,6 @@
 "use client"
 
-import Front from "../src/Front.jsx"
+import App from "../src/App.jsx"
 import Header from "../src/components/Header.jsx";
 
 export default function Home() {
@@ -10,7 +10,7 @@ export default function Home() {
         <Header />
       </div>
       <div className="row-start-2">
-        <Front />
+        <App />
       </div>
     </div>
   );
