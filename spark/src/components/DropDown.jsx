@@ -27,7 +27,7 @@ export default function DropDown({choices, text = "Select an Option" }) {
         return (
             <div className="dropdown">
                 <label tabIndex="0" className="btn m-1">{text}</label>
-                <ul tabIndex="0" className="dropdown-content z-[1] menu p-2 shadow-lg bg-base-100 rounded-box w-80">
+                <ul tabIndex="0" className="dropdown-content text-lg z-[1] menu p-2 shadow-lg bg-base-200 rounded-box w-80">
                     <li>No options available at the moment. Please try again later.</li>
                 </ul>
             </div>
@@ -36,8 +36,8 @@ export default function DropDown({choices, text = "Select an Option" }) {
 
     return (
         <div className="dropdown">
-            <label tabIndex="0" className="btn m-1">{text}</label>
-            <ul tabIndex="0" className="dropdown-content z-[1] menu p-2 shadow-lg bg-base-100 rounded-box w-80">
+            <label tabIndex="0" className="btn m-1 w-[100px] text-lg">{text}</label>
+            <ul tabIndex="0" className="dropdown-content text-lg z-[1] menu p-2 shadow-xl bg-base-200 rounded-box w-30">
                 <DropDownChoices choices={ choices } />
             </ul>
         </div>

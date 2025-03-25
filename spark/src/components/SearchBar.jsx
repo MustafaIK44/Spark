@@ -25,23 +25,24 @@ function AvailableItems({listID, list}) {
  * @param items is an array.
  * @returns the code to render the search bar.
  */
-export default function SearchBar({items}) {   
+function SearchBar({items, searchValue, handleChange}) {   
     {/* if there is no item list, then database is empty. */}
     if (!items || items.length == 0) {
         return (
-            <label className="input bg-base-300">
-            <svg className="h-[2em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35 24"><g strokeLinejoin="round" strokeLinecap="round" strokeWidth="2.5" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></g></svg>
-            <input className="text-lg" type="search" required placeholder="No items available" disabled/>
+            <label className="input bg-base-300 w-[600px]">
+            <svg className="h-[2em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g strokeLinejoin="round" strokeLinecap="round" strokeWidth="2.5" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></g></svg>
+            <input className="text-xl" type="search" required placeholder="No items available" disabled/>
             </label>
         );
     }
 
     {/* if there are items, then allow user to type in the input field. Also, populate the datalist. */}
     return (
-        <label className="input bg-base-300">
+        <label className="input bg-base-300 w-[600px] p-1">
         <svg className="h-[2em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g strokeLinejoin="round" strokeLinecap="round" strokeWidth="2.5" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></g></svg>
-        <input role="combobox" className="text-lg" type="search" required placeholder="Search" list="available"/>
+        <input className="text-xl" type="search" placeholder="Search" list="available"  value={searchValue} onChange={handleChange} required/>
         <AvailableItems listID="available" list={items} />
         </label>
     );
 }
+export default SearchBar;
