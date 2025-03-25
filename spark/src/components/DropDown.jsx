@@ -6,7 +6,7 @@ function DropDownChoices ({ choices }) {
     return (
         <>
             {choices.map((choice, index) => (
-                <li key={index}><a>{choice}</a></li>
+                <option key={index}>{choice}</option>
             ))}
         </>
     );
@@ -22,24 +22,24 @@ function DropDownChoices ({ choices }) {
  * 
  * @return a drop down menu if there are choices passed into the function, a "No options available" tab if not
  */
-export default function DropDown({choices, text = "Select an Option" }) {
+function DropDown({value, onChange, choices, text="Select an Option"}) {
     if (!choices || choices.length === 0) {
         return (
-            <div className="dropdown">
-                <label tabIndex="0" className="btn m-1">{text}</label>
-                <ul tabIndex="0" className="dropdown-content text-lg z-[1] menu p-2 shadow-lg bg-base-200 rounded-box w-80">
-                    <li>No options available at the moment. Please try again later.</li>
-                </ul>
+            <div>
+                <select className="select" disabled={true}>
+                <option> No options available. Please try again later.</option>
+                </select>
             </div>
         );
     }
 
     return (
-        <div className="dropdown">
-            <label tabIndex="0" className="btn m-1 w-[100px] text-lg">{text}</label>
-            <ul tabIndex="0" className="dropdown-content text-lg z-[1] menu p-2 shadow-xl bg-base-200 rounded-box w-30">
-                <DropDownChoices choices={ choices } />
-            </ul>
+        <div>
+            <select value={value} onChange={onChange} className="bg-base-300 select text-lg w-30 h-9"> 
+                <option> {text} </option>
+                <DropDownChoices choices={choices}/>
+            </select>
         </div>
     );
 }
+export default DropDown;
