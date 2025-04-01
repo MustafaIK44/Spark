@@ -2,6 +2,7 @@ import React, { useState, useEffect} from "react";
 import SearchBar from "./SearchBar.jsx";
 import DropDown from "./DropDown.jsx";
 import Button from "./Button.jsx";
+import Front from "@/Front.jsx";
 
 //notes: https://react.dev/reference/react/useState , https://www.geeksforgeeks.org/react-onsubmit-event/ , 
 // https://react.dev/learn/state-a-components-memory , https://medium.com/swlh/creating-forms-with-react-hooks-fe02b6eaad5e
@@ -13,21 +14,24 @@ function Header() {
     const [searchValue, setSearchValue] = useState("");
     const [selectValue, setSelectValue] = useState("");
     const [result, setResult] = useState("");
+    const [search, setSearch] = useState(" ");
     
     function handleSubmit(e) {
         e.preventDefault();
+    
         if (selectValue == zipText) {
             setResult("Form has been submitted with with input: " + searchValue);
         } else {
             setResult("Form has been submitted with with input: " + searchValue + " " + selectValue);
         }
+        setSearch(searchValue);
     }
-
+    //??
     function handleChange(e) {
         setSearchValue(e.target.value);
         setResult("");
     }
-    
+    //??
     function handleSelectChange(e) {
         setSelectValue(e.target.value)
     }
@@ -45,6 +49,8 @@ function Header() {
                 <br />
                 <h4>{result}</h4>
             </div>
+
+            <Front search={search}/>
         </div>
     );
 }

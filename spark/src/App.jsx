@@ -1,13 +1,15 @@
 "use client"
 
-import React from "react";
+import React, { useState, useEffect} from "react";
 import './App.css';
-import Front from "./Front.jsx"
+import Header from "./components/Header"
 
 function App() {
+  
+
   return (
     <div>
-      <Front />
+      <Header/>
     </div>
   );
 }
