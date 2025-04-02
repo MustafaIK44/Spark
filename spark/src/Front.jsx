@@ -4,7 +4,7 @@ import ProductCard from "./components/ProductCard.jsx";
 import { collection, doc, getDocs } from "firebase/firestore";
 import { useCollection, useDocument} from "../libs/firebase/userFirestore"
 
-function Front({search}) {
+function Front({search, onAdd}) {
 
 
 
@@ -24,6 +24,7 @@ function Front({search}) {
                   storeZipCode={"22030"}
                   productPrice={product.Price}
                   productImage={product.Image}
+                  onAdd={onAdd}
               />
           ))
       ) : (
