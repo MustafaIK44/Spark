@@ -1,7 +1,8 @@
 .product-grid{
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Responsive grid */
-    gap: 100px; /* Space between cards */
+    grid-template-rows: repeat(3, auto);
+    gap: 100px; 
     padding: 20px;
     justify-content: center;
 }
