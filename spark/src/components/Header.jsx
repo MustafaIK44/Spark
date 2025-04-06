@@ -41,8 +41,13 @@ function Header() {
         const stored = JSON.parse(localStorage.getItem("shoppingList")) || [];
         const updated = [...stored, product];
         localStorage.setItem("shoppingList", JSON.stringify(updated));
-        console.log("Added product:", product);
+    
+        // Debug output:
+        console.log("✅ Product added:", product);
+        console.log("📦 localStorage now:", localStorage.getItem("shoppingList"));
     };
+    
+    
 
     const navItems = [
         { label: "Home", path: "/" },
