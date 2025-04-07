@@ -17,10 +17,10 @@ function ShoppingList({ children }) {
     }, [shoppingList]);
 
     const handleAddToList = (product) => {
-        setShoppingList(prevList => [...prevList, product]);
+        setShoppingList((prevList) => [...prevList, product]);
     };
 
-    const enhancedChildren = React.Children.map(children, child =>
+    const enhancedChildren = React.Children.map(children, (child) =>
         cloneElement(child, { onAdd: handleAddToList })
     );
 
@@ -35,13 +35,28 @@ function ShoppingList({ children }) {
                 {shoppingList.length === 0 ? (
                     <p className="text-gray-500">No items added yet.</p>
                 ) : (
-                    <ul className="list-disc list-inside space-y-2">
-                        {shoppingList.map((item, index) => (
-                            <li key={index}>
-                                {item.name} - {item.price} ({item.store})
-                            </li>
-                        ))}
-                    </ul>
+                    Array.from(
+                        shoppingList.reduce((grouped, item) => {
+                            if (!grouped.has(item.store)) {
+                                grouped.set(item.store, []);
+                            }
+                            grouped.get(item.store).push(item);
+                            return grouped;
+                        }, new Map())
+                    )
+                        .sort((a, b) => a[0].localeCompare(b[0])) // sort by store name
+                        .map(([store, items]) => (
+                            <div key={store}>
+                                <h3 className="font-bold text-lg mt-4">{store}</h3>
+                                <ul className="list-disc list-inside space-y-1 ml-4">
+                                    {items.map((item, index) => (
+                                        <li key={`${store}-${index}`}>
+                                            {item.name} - {item.price}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        ))
                 )}
             </div>
         </div>
