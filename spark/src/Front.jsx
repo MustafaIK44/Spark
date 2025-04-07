@@ -4,10 +4,9 @@ import ProductCard from "./components/ProductCard.jsx";
 import { collection, doc, getDocs } from "firebase/firestore";
 import { useCollection, useDocument} from "../libs/firebase/userFirestore"
 
-function Front({search}) {
+function Front({search, onAdd}) {
+
   const { data: products, loading, error } = useCollection(`test/batch test/22030/MockInfo/${search}`);
-
-
   return (
     <div className="product-grid">
       {products.length > 0 ? ( 
@@ -19,6 +18,7 @@ function Front({search}) {
             storeZipCode={"22030"}
             productPrice={product.Price}
             productImage={product.Image}
+            onAdd={onAdd}
           />
         ))
       ) : ( 

@@ -3,6 +3,7 @@ import SearchBar from "./SearchBar.jsx";
 import DropDown from "./DropDown.jsx";
 import Button from "./Button.jsx";
 import Front from "@/Front.jsx";
+import HamburgerMenu from "./HamburgerMenu.jsx";
 
 //notes: https://react.dev/reference/react/useState , https://www.geeksforgeeks.org/react-onsubmit-event/ , 
 // https://react.dev/learn/state-a-components-memory , https://medium.com/swlh/creating-forms-with-react-hooks-fe02b6eaad5e
@@ -36,8 +37,24 @@ function Header() {
         setSelectValue(e.target.value)
     }
 
+    const handleAddToList = (product) => {
+        const stored = JSON.parse(localStorage.getItem("shoppingList")) || [];
+        const updated = [...stored, product];
+        localStorage.setItem("shoppingList", JSON.stringify(updated));
+        console.log("Added product:", product);
+    };
+
+    const navItems = [
+        { label: "Home", path: "/" },
+        { label: "About", path: "/about" },
+        { label: "Shopping List", path: "/shopping-list" },
+    ];
+
     return (
         <div>
+            <div className="flex justify-end p-4">
+                <HamburgerMenu navItems={navItems} buttonLabel="☰" />
+            </div>
             <div>
                 <form onSubmit={handleSubmit} className="flex justify-center items-center gap-4">
                     <SearchBar items={availItems} value={searchValue} onChange={handleChange}/>
@@ -50,7 +67,7 @@ function Header() {
                 <h4>{result}</h4>
             </div>
 
-            <Front search={search}/>
+            <Front search={search} onAdd={handleAddToList} />
         </div>
     );
 }
