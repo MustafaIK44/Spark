@@ -4,6 +4,7 @@ import HamburgerMenu from "@/components/HamburgerMenu";
 export default function AboutPage() {
     const navItems = [
         { label: "Home", path: "/" },
+        { label: "Account", path: "/account"},
         { label: "Shopping List", path: "/shopping-list" },
     ];
 

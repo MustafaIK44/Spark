@@ -35,6 +35,7 @@ export default function ShoppingListPage() {
     const navItems = [
         { label: "Home", path: "/" },
         { label: "About", path: "/about" },
+        { label: "Account", path: "/account"},
     ];
 
     return (
