@@ -18,7 +18,7 @@ function ProductCard({productName, productStore, storeZipCode, productPrice, pro
     };
     
     return (
-        <div className="card bg-base-200 w-72 shadow-sm p-2">
+        <div className="card bg-base-300 w-72 shadow-sm p-2">
             <figure className="px-10 pt-10">
             <img
                 src={productImage}

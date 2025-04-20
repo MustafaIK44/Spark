@@ -4,37 +4,33 @@ import DropDown from "./DropDown.jsx";
 import Button from "./Button.jsx";
 import Front from "@/Front.jsx";
 import HamburgerMenu from "./HamburgerMenu.jsx";
-
-//notes: https://react.dev/reference/react/useState , https://www.geeksforgeeks.org/react-onsubmit-event/ , 
-// https://react.dev/learn/state-a-components-memory , https://medium.com/swlh/creating-forms-with-react-hooks-fe02b6eaad5e
+import "./Header.css";
 
 function Header() {
+    //hard-coded arrays that MUST be replaced by database fetches
     const availItems = ["Eggs", "Bread", "Milk", "Cereal", "Chicken", "Beef", "Apples", "Paper towels", "Toilet paper"];
-    const zipCodes = ["20151", "20153", "22031", "22032", "22033", "22034", "22035", "22036"]
+    const zipCodes = ["22030", "22031", "22032", "22015", "22151"];
+    //constants that set values, which are to be used with searching through the database
     const zipText = "Zip Code";
     const [searchValue, setSearchValue] = useState("");
-    const [selectValue, setSelectValue] = useState("");
-    const [result, setResult] = useState("");
+    const [zipValue, setZipValue] = useState("");
+    const [zip, setZip] = useState("22030");
     const [search, setSearch] = useState(" ");
     
     function handleSubmit(e) {
         e.preventDefault();
-    
-        if (selectValue == zipText) {
-            setResult("Form has been submitted with with input: " + searchValue);
-        } else {
-            setResult("Form has been submitted with with input: " + searchValue + " " + selectValue);
-        }
         setSearch(searchValue);
+        if (zipValue != "Zip Code") {
+            setZip(zipValue);
+        }
     }
     //??
     function handleChange(e) {
         setSearchValue(e.target.value);
-        setResult("");
     }
     //??
     function handleSelectChange(e) {
-        setSelectValue(e.target.value)
+        setZipValue(e.target.value)
     }
 
     const handleAddToList = (product) => {
@@ -57,23 +53,21 @@ function Header() {
     ];
 
     return (
-        <div>
-            <div className="flex justify-end p-4">
-                <HamburgerMenu navItems={navItems} buttonLabel="☰" />
-            </div>
-            <div>
+        <div className="min-h-screen flex flex-col">
+            <div className="head">
+                <HamburgerMenu navItems={navItems} buttonLabel="☰"/>
+                <img src="../images/anan.png" alt="Spark Logo" className="logo"/>
                 <form onSubmit={handleSubmit} className="flex justify-center items-center gap-4">
                     <SearchBar items={availItems} value={searchValue} onChange={handleChange}/>
-                    <DropDown choices={zipCodes} text={zipText} value={selectValue} onChange={handleSelectChange}/>
+                    <DropDown choices={zipCodes} text={zipText} value={zipValue} onChange={handleSelectChange}/>
                     <Button text="Submit" type="submit" className="bg-base-300 text-lg w-20 h-9"/>
                 </form>
             </div>
-            <div>
-                <br />
-                <h4>{result}</h4>
+            <div className="flex-1 flex justify-center items-center p-5"> 
+                <div className="body">
+                    <Front zip={zip} search={search} onAdd={handleAddToList} />
+                </div>
             </div>
-
-            <Front search={search} onAdd={handleAddToList} />
         </div>
     );
 }
