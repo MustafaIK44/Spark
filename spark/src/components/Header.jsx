@@ -4,18 +4,40 @@ import DropDown from "./DropDown.jsx";
 import Button from "./Button.jsx";
 import Front from "@/Front.jsx";
 import HamburgerMenu from "./HamburgerMenu.jsx";
+import { getAllItems, getItemsOnSearch } from "../../libs/firebase/itemDisplay";
+import { fetchZipcodes, fetchZipcodeData } from "../../libs/firebase/zipcodeService";
+
+
 
 //notes: https://react.dev/reference/react/useState , https://www.geeksforgeeks.org/react-onsubmit-event/ , 
 // https://react.dev/learn/state-a-components-memory , https://medium.com/swlh/creating-forms-with-react-hooks-fe02b6eaad5e
 
 function Header() {
-    const availItems = ["Eggs", "Bread", "Milk", "Cereal", "Chicken", "Beef", "Apples", "Paper towels", "Toilet paper"];
-    const zipCodes = ["20151", "20153", "22031", "22032", "22033", "22034", "22035", "22036"]
+    // const availItems = ["Eggs", "Bread", "Milk", "Cereal", "Chicken", "Beef", "Apples", "Paper towels", "Toilet paper"];
+    const [availItems, setAvailItems] = useState([]);
+    // const zipCodes = ["20151", "20153", "22031", "22032", "22033", "22034", "22035", "22036"]
+    const [zipCodes, setZipCodes] = useState([]);
     const zipText = "Zip Code";
     const [searchValue, setSearchValue] = useState("");
     const [selectValue, setSelectValue] = useState("");
     const [result, setResult] = useState("");
     const [search, setSearch] = useState(" ");
+
+    useEffect(() => {
+        async function loadData() {
+            console.log("loading data");
+          const items = await getAllItems();
+          // Assume each item has a 'name' property for display purposes.
+          if (items) {
+            setAvailItems(items.map(item => item.name));
+          }
+          const fetchedZips = await fetchZipcodes();
+          if (fetchedZips) {
+            setZipCodes(fetchedZips);
+          }
+        }
+        loadData();
+      }, []);
     
     function handleSubmit(e) {
         e.preventDefault();

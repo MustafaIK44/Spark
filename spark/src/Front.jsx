@@ -1,23 +1,38 @@
 import React , { useEffect, useState }from "react";
 import './Front.css';
 import ProductCard from "./components/ProductCard.jsx";
+import { getAllItems, getItemsOnSearch } from "../libs/firebase/itemDisplay";
 import { collection, doc, getDocs } from "firebase/firestore";
 import { useCollection, useDocument} from "../libs/firebase/userFirestore"
 
 function Front({search, onAdd}) {
 
-  const { data: products, loading, error } = useCollection(`test/batch test/22030/MockInfo/${search}`);
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  let count = 0;
+  useEffect(() => {
+          async function loadItems() {
+            console.log("loading data");
+            const items = await getAllItems();
+            // Assume each item has a 'name' property for display purposes.
+            if (items) {
+              setProducts(items.map((item) => (item.price, item.imageLink, item.name)));
+            }
+          }
+          loadItems();
+        }, []);
+  console.log("Products: ", products[0])
   return (
     <div className="product-grid">
       {products.length > 0 ? ( 
         products.map((product) => (
           <ProductCard
-            key={product.Image}
-            productName={product.Title}
-            productStore={product.id}
+            key={count++}
+            productName={product.name}
+            productStore={"costco"}
             storeZipCode={"22030"}
-            productPrice={product.Price}
-            productImage={product.Image}
+            productPrice={product.price}
+            productImage={product.imageLink}
             onAdd={onAdd}
           />
         ))

@@ -9,7 +9,8 @@ import { collection, getDocs, doc, getDoc } from 'firebase/firestore';
  */
 export const fetchZipcodes = async () => {
   try {
-    const zipcodeCollectionRef = collection(db, 'zipcode');
+    const zipcodeCollectionRef = collection(db, 'zipcodes');
+    console.log("got zipcodes collection");
     const querySnapshot = await getDocs(zipcodeCollectionRef);
     
     const zipcodes = [];
@@ -17,7 +18,7 @@ export const fetchZipcodes = async () => {
       // If the document ID is the zipcode, add it directly
       zipcodes.push(doc.id);
     });
-    
+    console.log("zipcodes found: ", zipcodes);
     return zipcodes;
   } catch (error) {
     console.error('Error fetching zipcodes:', error);
@@ -33,7 +34,7 @@ export const fetchZipcodes = async () => {
 export const fetchZipcodeData = async (zipcode) => {
   try {
     const zipcodeDocRef = doc(db, 'zipcode', zipcode);
-    const docSnap = await getDoc(zipcodeDocRef);
+    const docSnap = await getDocs(zipcodeDocRef);
     
     if (docSnap.exists()) {
       return docSnap.data();
