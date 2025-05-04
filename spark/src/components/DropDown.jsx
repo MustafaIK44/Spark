@@ -12,6 +12,8 @@ function DropDownChoices ({ choices }) {
     );
 }
 
+//edited here
+
 /**
  * DropDown functionality. Generates a drop down menu that users can choose from. Calls the helper function DropDownChoices.
  * Zipcodes grabbed from this website: https://www.ciclt.net/sn/clt/capitolimpact/gw_ziplist.aspx?FIPS=51059
