@@ -29,7 +29,7 @@ function Front({search, onAdd}) {
           <ProductCard
             key={count++}
             productName={product.name}
-            productStore={"costco"}
+            productStore={"Costco"}
             storeZipCode={"22030"}
             productPrice={product.price}
             productImage={product.imageLink}
