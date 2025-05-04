@@ -22,9 +22,9 @@ describe('ProductCard', () => {
       productImage="https://i5.walmartimages.com/seo/Fresh-Gala-Apples-3-lb-Bag_eebbaadc-2ca6-4e25-a2c0-c189d4871fea.bcbe9a9c422a1443b7037548bb2c54c3.jpeg?odnHeight=2000&odnWidth=2000&odnBg=FFFFFF"
     />);
 
-    expect(screen.getByText(/Milk - 3.99/i)).toBeInTheDocument();
+    expect(screen.getByText(/Apples - 3.56/i)).toBeInTheDocument();
     expect(screen.getByText(/Walmart, 22030/i)).toBeInTheDocument();
-    expect(screen.getByRole('img')).toHaveAttribute('src', 'https://i5.walmartimages.com/seo/Fresh-Gala-Apples-3-lb-Bag_eebbaadc-2ca6-4e25-a2c0-c189d4871fea.bcbe9a9c422a1443b7037548bb2c54c3.jpeg?odnHeight=2000&odnWidth=2000&odnBg=FFFFFF"');
+    expect(screen.getByRole('img')).toHaveAttribute('src', 'https://i5.walmartimages.com/seo/Fresh-Gala-Apples-3-lb-Bag_eebbaadc-2ca6-4e25-a2c0-c189d4871fea.bcbe9a9c422a1443b7037548bb2c54c3.jpeg?odnHeight=2000&odnWidth=2000&odnBg=FFFFFF');
   });
 
   test('calls onAdd with correct product details when button is clicked', () => {
