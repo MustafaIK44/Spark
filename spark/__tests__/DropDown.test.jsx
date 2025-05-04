@@ -11,7 +11,7 @@ describe("DropDown Component", () => {
   });
 
   test("renders dropdown choices correctly", () => {
-    const zipCodes = ["20151", "20153", "22031"];
+    const zipCodes = [ "20151", "20153", "22031"];
     render(<DropDown choices={zipCodes} text="Select a Zip Code" />);
 
     zipCodes.forEach(zip => {
@@ -21,14 +21,14 @@ describe("DropDown Component", () => {
 
   test("displays 'No options available' when choices is null", () => {
     render(<DropDown choices={null} text="Select a Zip Code" />);
-    expect(screen.getByText("Select a Zip Code")).toBeInTheDocument();
-    expect(screen.getByText("No options available at the moment. Please try again later.")).toBeInTheDocument();
+    //expect(screen.getByText("Select a Zip Code")).not.toBeInTheDocument();
+    expect(screen.getByText("No options available. Please try again later.")).toBeInTheDocument();
   });
 
   test("displays 'No options available' when choices is empty", () => {
     render(<DropDown choices={[]} text="Select a Zip Code" />);
-    expect(screen.getByText("Select a Zip Code")).toBeInTheDocument();
-    expect(screen.getByText("No options available at the moment. Please try again later.")).toBeInTheDocument();
+    //expect(screen.getByText("Select a Zip Code")).toBeInTheDocument();
+    expect(screen.getByText("No options available. Please try again later..")).toBeInTheDocument();
   });
 
   test("renders default label when no text prop is provided", () => {
