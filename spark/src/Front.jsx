@@ -11,15 +11,15 @@ function Front({search, onAdd}) {
   const [loading, setLoading] = useState(true);
   let count = 0;
   useEffect(() => {
-          async function loadItems() {
-            console.log("loading data");
-            const items = await getAllItems();
-            // Assume each item has a 'name' property for display purposes.
-            if (items) {
-              setProducts(items.map((item) => ({price: item.price, imageLink: item.imageLink, name: item.name})));
-            }
-          }
-          loadItems();
+          // async function loadItems() {
+          //   console.log("loading data");
+          //   const items = await getAllItems();
+          //   // Assume each item has a 'name' property for display purposes.
+          //   if (items) {
+          //     setProducts(items.map((item) => ({price: item.price, imageLink: item.imageLink, name: item.name})));
+          //   }
+          // }
+          // loadItems();
         }, []);
   console.log("Products: ", products[0])
   return (
