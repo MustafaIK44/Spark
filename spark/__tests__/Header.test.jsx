@@ -1,0 +1,18 @@
+import '@testing-library/jest-dom'
+import { render, screen } from '@testing-library/react'
+import Header from '../src/components/Header.jsx'
+ 
+describe('Header', () => {
+  render(<Header />)
+  test('renders the Menu heading', () => {
+    const heading = screen.getByText(/menu/i);
+    expect(heading).toBeInTheDocument();
+  });
+  
+
+  test('does not render a paragraph', () => {
+    const heading = screen.queryByRole('paragraph')
+ 
+    expect(heading).not.toBeInTheDocument()
+  })
+})

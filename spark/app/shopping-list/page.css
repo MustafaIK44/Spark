@@ -1,0 +1,69 @@
+/* === GENERAL STYLES FOR PRINT VIEW === */
+@media print {
+    /* Hide elements you don't want printed */
+    .no-print {
+      display: none !important;
+    }
+  
+    /* Set default background/text colors for clarity */
+    body {
+      font-family: "Arial", sans-serif !important;
+      margin: 1in;
+    }
+  
+    /* Remove shadows and color backgrounds */
+    .bg-base-200,
+    .bg-base-100 {
+      background: transparent !important;
+      box-shadow: none !important;
+    }
+  
+    /* Make titles stand out */
+    h1, h2, h3 {
+      color: black !important;
+      font-weight: bold;
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+  
+    /* Add spacing and legibility to items */
+    ul {
+      padding-left: 1.5rem;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+  
+    li {
+      border-bottom: 1px dashed #ccc;
+      padding: 6px 0;
+    }
+  
+    /* Ensure each store starts on a new printed page */
+    .store-section {
+      page-break-before: always;
+    }
+  
+    /* Optionally hide footer/menus if you have them */
+    header,
+    footer,
+    nav {
+      display: none !important;
+    }
+  
+    /* Optionally scale print size */
+    html {
+      font-size: 12pt;
+    }
+  }
+  
+  /* You can still style the on-screen view outside @media print */
+  .print-only {
+    display: none;
+  }
+  
+  @media print {
+    .print-only {
+      display: block;
+    }
+  }
+  
