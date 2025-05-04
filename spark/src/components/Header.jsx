@@ -49,6 +49,7 @@ function Header() {
     }
     
     function handleChange(e) {
+        console.log("🔍 handleChange triggered"); // TEMP for coverage test
         setSearchValue(e.target.value);
     }
     
