@@ -46,8 +46,8 @@ export const getAllItems = async() => {
             items.push({id: doc.id, ... doc.data()});
         });
         return items;
-    } catch {
-        console.log("unable to fetch items");
+    } catch(error) {
+        console.log("unable to fetch items", error);
         return null;
     }
 }

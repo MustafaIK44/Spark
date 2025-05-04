@@ -1,5 +1,6 @@
 // app/about/page.jsx
 import HamburgerMenu from "@/components/HamburgerMenu";
+import About from "@/About";
 
 export default function AboutPage() {
     const navItems = [
@@ -13,8 +14,7 @@ export default function AboutPage() {
             <div className="flex justify-end p-4">
                 <HamburgerMenu navItems={navItems} buttonLabel="☰" />
             </div>
-            <h1 className="text-2xl font-bold mb-2">About</h1>
-            <p>Spark is a grocery app for the Northern Virginia Fairfax area. Built for CS321.</p>
+            <About />
         </div>
     );
 }
