@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 import Button from "./Button.jsx";
 
-function ProductCard({productName, productStore, storeZipCode, productPrice, productImage, onAdd}) {
+function ProductCard({productName="Product Name", productStore="Store", storeZipCode="Zip", productPrice="0.00", productImage="/stockeggs.jpeg", onAdd}) {
     const handleAddClick = () => {
         if (onAdd) {
             onAdd({
