@@ -4,6 +4,7 @@ import DropDown from "./DropDown.jsx";
 import Button from "./Button.jsx";
 import Front from "@/Front.jsx";
 import HamburgerMenu from "./HamburgerMenu.jsx";
+import './Header.css';
 import { getAllItems, getItemsOnSearch } from "../../libs/firebase/itemDisplay";
 import { fetchZipcodes, fetchZipcodeData } from "../../libs/firebase/zipcodeService";
 
@@ -46,11 +47,11 @@ function Header() {
             setZip(zipValue);
         }
     }
-    //??
+    
     function handleChange(e) {
         setSearchValue(e.target.value);
     }
-    //??
+    
     function handleSelectChange(e) {
         setZipValue(e.target.value)
     }
