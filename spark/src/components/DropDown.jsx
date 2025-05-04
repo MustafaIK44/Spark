@@ -12,8 +12,6 @@ function DropDownChoices ({ choices }) {
     );
 }
 
-//edited here
-
 /**
  * DropDown functionality. Generates a drop down menu that users can choose from. Calls the helper function DropDownChoices.
  * Zipcodes grabbed from this website: https://www.ciclt.net/sn/clt/capitolimpact/gw_ziplist.aspx?FIPS=51059
@@ -38,7 +36,7 @@ function DropDown({value, onChange, choices, text="Select an Option"}) {
     return (
         <div>
             <select value={value} onChange={onChange} className="bg-base-300 select text-lg w-30 h-9"> 
-                <option> {text} </option>
+                <option>{text}</option>
                 <DropDownChoices choices={choices}/>
             </select>
         </div>

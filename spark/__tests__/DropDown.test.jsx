@@ -28,7 +28,7 @@ describe("DropDown Component", () => {
   test("displays 'No options available' when choices is empty", () => {
     render(<DropDown choices={[]} text="Select a Zip Code" />);
     //expect(screen.getByText("Select a Zip Code")).toBeInTheDocument();
-    expect(screen.getByText("No options available. Please try again later..")).toBeInTheDocument();
+    expect(screen.getByText("No options available. Please try again later.")).toBeInTheDocument();
   });
 
   test("renders default label when no text prop is provided", () => {
