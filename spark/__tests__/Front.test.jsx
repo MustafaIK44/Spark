@@ -22,7 +22,8 @@ afterEach(() => {
     cleanup();
 });
 
-describe('Front', () => {
+//this will use the mocks from above so it ONLY tests Front itself, and not ProductCards' onAdd nor any firebase things.
+describe('Front Unit Tests', () => {
     test('renders default products when search is empty and no products fetched', () => {
         render(<Front search="" onAdd={jest.fn()} />);
         
@@ -42,6 +43,8 @@ describe('Front', () => {
         render(<Front search="" />);
         expect(screen.getAllByTestId('product-card').length).toBe(5);
       });
+
+    //thanks to the mock from earlier, we're entirely mocking the result from getAllItems
 
     // test('renders products from getAllItems()', async () => {
     //     getAllItems.mockResolvedValue([

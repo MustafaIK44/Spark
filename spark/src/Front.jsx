@@ -27,7 +27,7 @@ function Front({search, onAdd}) {
       {products.length > 0 ? ( 
         products.map((product) => (
           <ProductCard
-            key={count++}
+            key={product.name + (count++)}
             productName={product.name}
             productStore={"Costco"}
             storeZipCode={"22030"}
