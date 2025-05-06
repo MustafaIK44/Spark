@@ -44,7 +44,7 @@ export default function AccountPage() {
       setMessage(`Logged in as ${user.email}`);
       router.push("/");
     } catch (err) {
-      setMessage(err.message);
+      setMessage(err.message || "Google login failed");
     }
   };
 

@@ -45,7 +45,7 @@ export default function RegisterPage() {
       setMessage(`Registered as ${user.email}`);
       router.push("/");
     } catch (err) {
-      setMessage(err.message);
+      setMessage(err.message || "Google sign-in failed");
     }
   };
 
