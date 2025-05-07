@@ -45,8 +45,8 @@ describe('Front/ProductCard/getAllItems integration', () => {
 
     test('displays "No Product Found!" when search is "beef" (something not in mocked values) and no matching items are returned', async () => {
         getAllItems.mockResolvedValue([
-          { name: 'Milk', price: '4.99', imageLink: 'https://i5.walmartimages.com/seo/Great-Value-Whole-Vitamin-D-Milk-Gallon-Plastic-Jug-128-Fl-Oz_6a7b09b4-f51d-4bea-a01c-85767f1b481a.86876244397d83ce6cdedb030abe6e4a.jpeg'},
-          {name: 'Seedless Mandarin Oranges', price: '6.99', imageLink: 'https://i5.peapod.com/c/UJ/UJXAD.png'}
+          { itemName: 'Milk', price: '4.99', url: 'https://i5.walmartimages.com/seo/Great-Value-Whole-Vitamin-D-Milk-Gallon-Plastic-Jug-128-Fl-Oz_6a7b09b4-f51d-4bea-a01c-85767f1b481a.86876244397d83ce6cdedb030abe6e4a.jpeg'},
+          {itemName: 'Seedless Mandarin Oranges', price: '6.99', url: 'https://i5.peapod.com/c/UJ/UJXAD.png'}
         ]);
       
         render(<Front search="beef" onAdd={jest.fn()} />);
