@@ -4,13 +4,13 @@ import { GoogleAuthProvider, getAuth } from "firebase/auth";
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBDwqCtuQAIdWWNZOSNLMMMXTjXQX4VK8I",
-  authDomain: "spark2-f41c4.firebaseapp.com",
-  projectId: "spark2-f41c4",
-  storageBucket: "spark2-f41c4.firebasestorage.app",
-  messagingSenderId: "710209191306",
-  appId: "1:710209191306:web:135d88206981e43992dc73",
-  measurementId: "G-ZFKX6VGXL9"
+  apiKey: "AIzaSyBWRrOKm3uMBcgpxq-pIDg-9L-WxmlHpB8",
+  authDomain: "sparknew-e4575.firebaseapp.com",
+  projectId: "sparknew-e4575",
+  storageBucket: "sparknew-e4575.firebasestorage.app",
+  messagingSenderId: "611670244363",
+  appId: "1:611670244363:web:eb28ce781e5b2dc639db0e",
+  measurementId: "G-0BHQ5HDR6W"
 };
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);

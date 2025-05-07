@@ -8,7 +8,7 @@ import { collectionGroup, query, orderBy, where, getDocs, doc, getDoc } from 'fi
  * @param {string} search The search term to find the item(s).
  * @returns {Promise<Array|null>} Array of items matching the search term or null if not found.
  */
-export const getItemsOnSearch = async(search) => {
+export const getItemsOnSearch = async(search, products) => {
     try{
         const itemsRef = collectionGroup(db, 'items');
         const q = query(itemsRef, orderBy('price', 'asc'));
@@ -41,9 +41,10 @@ export const getAllItems = async() => {
 
         let items = []
         querySnapshot.forEach(doc => {
-            const item = doc.data();
-            // console.log("name: ", item.name, " price: ", item.price, "type: ", typeof item.price);
-            items.push({id: doc.id, ... doc.data()});
+            const data = doc.data();
+            const storeID = doc.ref.parent.parent.id;
+            const zipcode = doc.ref.parent.parent.parent.parent.id;
+            items.push({id: doc.id, store: storeID, zipcode: zipcode, ...data});
         });
         return items;
     } catch(error) {
@@ -51,3 +52,5 @@ export const getAllItems = async() => {
         return null;
     }
 }
+
+

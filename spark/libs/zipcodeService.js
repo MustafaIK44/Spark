@@ -1,6 +1,6 @@
 "use client";
 
-import { db } from './config';
+import { db } from './firebase/config';
 import { collection, getDocs, doc, getDoc } from 'firebase/firestore';
 
 /**
@@ -45,4 +45,4 @@ export const fetchZipcodeData = async (zipcode) => {
     console.error(`Error fetching data for zipcode ${zipcode}:`, error);
     return null;
   }
-}; 
+};

@@ -46,19 +46,19 @@ describe('Front Unit Tests', () => {
 
     //thanks to the mock from earlier, we're entirely mocking the result from getAllItems
 
-    // test('renders products from getAllItems()', async () => {
-    //     getAllItems.mockResolvedValue([
-    //         { name: 'Milk', price: '4.99', imageLink: 'https://i5.walmartimages.com/seo/Great-Value-Whole-Vitamin-D-Milk-Gallon-Plastic-Jug-128-Fl-Oz_6a7b09b4-f51d-4bea-a01c-85767f1b481a.86876244397d83ce6cdedb030abe6e4a.jpeg' },
-    //         { name: 'Seedless Mandarin Oranges', price: '6.99', imageLink: 'https://i5.peapod.com/c/UJ/UJXAD.png' },
-    //     ]);
+    test('renders products from getAllItems()', async () => {
+        getAllItems.mockResolvedValue([
+            { name: 'Milk', price: '4.99', imageLink: 'https://i5.walmartimages.com/seo/Great-Value-Whole-Vitamin-D-Milk-Gallon-Plastic-Jug-128-Fl-Oz_6a7b09b4-f51d-4bea-a01c-85767f1b481a.86876244397d83ce6cdedb030abe6e4a.jpeg' },
+            { name: 'Seedless Mandarin Oranges', price: '6.99', imageLink: 'https://i5.peapod.com/c/UJ/UJXAD.png' },
+        ]);
         
-    //     render(<Front search="" onAdd={jest.fn()} />);
+        render(<Front search="" onAdd={jest.fn()} />);
         
-    //     await waitFor(() => {
-    //         const cards = screen.getAllByTestId('product-card');
-    //         expect(cards.length).toBe(2);
-    //         expect(cards[0]).toHaveTextContent('Milk');
-    //         expect(cards[1]).toHaveTextContent('Seedless Mandarin Oranges');
-    //     });
-    // });
+        await waitFor(() => {
+            const cards = screen.getAllByTestId('product-card');
+            expect(cards.length).toBe(2);
+            expect(cards[0]).toHaveTextContent('Milk');
+            expect(cards[1]).toHaveTextContent('Seedless Mandarin Oranges');
+        });
+    });
 });
