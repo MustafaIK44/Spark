@@ -21,7 +21,7 @@ function Header() {
     const zipText = "Zip Code";
     const [searchValue, setSearchValue] = useState("");
     const [zipValue, setZipValue] = useState("");
-    const [zip, setZip] = useState("22030");
+    const [zip, setZip] = useState("");
     const [search, setSearch] = useState(" ");
 
     useEffect(() => {
@@ -45,6 +45,9 @@ function Header() {
         setSearch(searchValue);
         if (zipValue != "Zip Code") {
             setZip(zipValue);
+        }
+        else{
+            setZip("");
         }
     }
     

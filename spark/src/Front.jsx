@@ -5,8 +5,8 @@ import { getAllItems, getItemsOnSearch } from "../libs/firebase/itemDisplay";
 import { collection, doc, getDocs } from "firebase/firestore";
 import { useCollection, useDocument} from "../libs/firebase/userFirestore"
 
-function Front({search, onAdd}) {
-
+function Front({search, zip, onAdd}) {
+  console.log("selected zip: ", zip);
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchedProducts, setSearchedProducts] = useState([]);
@@ -23,7 +23,7 @@ function Front({search, onAdd}) {
               const items = await getAllItems();
             // Assume each item has a 'name' property for display purposes.
               if (items) {
-                const mappedItems = items.map((item) => ({price: item.price, url: item.url, itemName: item.itemName, store: item.store, zipcode: item.zipcode}));
+                const mappedItems = items.map((item) => ({price: item.price, imageURL: item.imageURL, url: item.url, itemName: item.itemName, store: item.store, zipcode: item.zipcode}));
                 setProducts(mappedItems);
                 setSearchedProducts(mappedItems)
                 localStorage.setItem("products", JSON.stringify(mappedItems));
@@ -36,13 +36,20 @@ function Front({search, onAdd}) {
         useEffect(() => {
           if ((search.trim() !== "")){
             const lowercaseSearch = search.toLowerCase();
-            setSearchedProducts(products.filter(product => product.itemName && product.itemName.toLowerCase().includes(lowercaseSearch)));
+            if(zip !== ""){
+              setSearchedProducts(products.filter(product => product.itemName && product.itemName.toLowerCase().includes(lowercaseSearch) && product.zipcode === zip));
+            } else {
+              setSearchedProducts(products.filter(product => product.itemName && product.itemName.toLowerCase().includes(lowercaseSearch)));
+            }
           }
           else{
             setSearchedProducts(products);
           }
-        }, [search, products]);
-  console.log("Searched Products: ", searchedProducts[0])
+        }, [search, zip, products]);
+
+  console.log("searched products length: ", searchedProducts.length);
+  console.log("Searched Products: ", searchedProducts[200]);
+
   return (
     <div className="product-grid">
       {searchedProducts.length > 0 ? ( 
@@ -53,7 +60,7 @@ function Front({search, onAdd}) {
             productStore={product.store}
             storeZipCode={product.zipcode}
             productPrice={product.price}
-            productImage={product.url}
+            productImage={product.imageURL}
             onAdd={onAdd}
           />
         ))
