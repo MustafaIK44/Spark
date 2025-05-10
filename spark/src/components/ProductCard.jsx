@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 import Button from "./Button.jsx";
 
-function ProductCard({productName="Product Name", productStore="Store", storeZipCode="Zip", productPrice="0.00", productImage="/stockeggs.jpeg", onAdd}) {
+function ProductCard({productName="Product Name", productStore="Store", storeZipCode="Zip", productPrice="0.00", productImage="/images/imagenotfound.png", onAdd}) {
     const handleAddClick = () => {
         if (onAdd) {
             onAdd({
@@ -12,7 +12,7 @@ function ProductCard({productName="Product Name", productStore="Store", storeZip
                 store: productStore,
                 zip: storeZipCode,
                 price: productPrice,
-                image: productImage
+                image: productImage == null ? "/images/imagenotfound.png" : productImage
             });
         }
     };

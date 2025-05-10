@@ -66,4 +66,17 @@
       display: block;
     }
   }
+  /* makes it so the top part matches with the rest of the app */
+  .head {
+    background-color: var(--color-accent-content);
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 20px; 
+    padding: 8px;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    width: 90vw;
+}
   

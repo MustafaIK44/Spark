@@ -25,8 +25,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className="antialiased" style={{ fontFamily: "var(--font-geist-sans)" }}>
-        {children}
+        className="min-h-screen flex flex-col bg-base-100 antialiased text-base-content" style={{ fontFamily: "var(--font-geist-sans)" }}>
+        <div className="flex-grow"> {children} </div>
       </body>
     </html>
   );

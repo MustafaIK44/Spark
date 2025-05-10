@@ -4,7 +4,6 @@ import DropDown from "./DropDown.jsx";
 import Button from "./Button.jsx";
 import Front from "@/Front.jsx";
 import HamburgerMenu from "./HamburgerMenu.jsx";
-import './Header.css';
 import { getAllItems, getItemsOnSearch } from "../../libs/firebase/itemDisplay";
 import { fetchZipcodes, fetchZipcodeData } from "../../libs/firebase/zipcodeService";
 
@@ -80,8 +79,8 @@ function Header() {
     ];
 
     return (
-        <div className="min-h-screen flex flex-col">
-            <div className="head">
+        <div className="flex flex-col items-center">
+            <div className="w-full max-w-screen-2xl p-6 bg-base-300 rounded-xl shadow-md flex flex-row gap-4 items-center">
                 <HamburgerMenu navItems={navItems} buttonLabel="☰"/>
                 <img src="../images/anan.png" alt="Spark Logo" className="logo"/>
                 <form onSubmit={handleSubmit} className="flex justify-center items-center gap-4">
@@ -90,10 +89,8 @@ function Header() {
                     <Button text="Submit" type="submit" className="bg-base-300 text-lg w-20 h-9"/>
                 </form>
             </div>
-            <div className="flex-1 flex justify-center items-center p-5"> 
-                <div className="body">
+            <div className="w-full m-5 max-w-6xl p-5 bg-base-200 shadow-md rounded-xl"> 
                     <Front zip={zip} search={search} onAdd={handleAddToList} />
-                </div>
             </div>
         </div>
     );
