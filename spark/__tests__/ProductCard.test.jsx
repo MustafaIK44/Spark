@@ -9,7 +9,7 @@ describe('ProductCard', () => {
 
     expect(screen.getByText(/Product Name - 0.00/i)).toBeInTheDocument();
     expect(screen.getByText(/Store, Zip/i)).toBeInTheDocument();
-    expect(screen.getByRole('img')).toHaveAttribute('src', '/stockeggs.jpeg');
+    expect(screen.getByRole('img')).toHaveAttribute('src', '/images/imagenotfound.png');
     expect(screen.getByText(/Add to list/i)).toBeInTheDocument();
   });
 
